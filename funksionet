@@ -1,0 +1,14 @@
+bool isWordGuessed(vector<bool> guessed) {
+    for (bool g : guessed) {
+        if (!g) return false;
+    }
+    return true;
+}
+
+void saveStats(PlayerStats stats) {
+    ofstream file("stats.txt");
+    if (file.is_open()) {
+        file << stats.wins << " " << stats.losses << " " << stats.successRate << endl;
+        file.close();
+    }
+}
