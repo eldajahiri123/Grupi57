@@ -1,0 +1,30 @@
+PlayerStats loadStats() {
+    ifstream file("stats.txt");
+    PlayerStats stats = { 0, 0, 0.0 };
+    if (file.is_open()) {
+        file >> stats.wins >> stats.losses >> stats.successRate;
+        file.close();
+    }
+    return stats;
+}
+
+void playGame(string word, PlayerStats& stats) {
+    vector<bool> guessed(word.length(), false);
+    int attempts = 6;
+    char letter;
+
+    while (attempts > 0) {
+        printWord(word, guessed);
+        cout << "Attempts left: " << attempts << endl;
+        cout << "Guess a letter: ";
+        cin >> letter;
+
+        bool found = false;
+        for (size_t i = 0; i < word.length(); i++) {
+            if (word[i] == letter) {
+                if (!guessed[i]) {
+                    guessed[i] = true;
+                    found = true;
+                }
+            }
+        }
