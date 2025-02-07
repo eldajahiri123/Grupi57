@@ -1,0 +1,11 @@
+void printWord(string word, vector<bool> guessed) {
+    for (size_t i = 0; i < word.length(); i++) {
+        if (guessed[i]) {
+            cout << word[i] << " ";
+        }
+        else {
+            cout << "_ ";
+        }
+    }
+    cout << endl;
+}
