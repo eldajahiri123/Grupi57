@@ -1,0 +1,12 @@
+#include <iostream>
+#include <vector>
+#include <ctime>
+#include <cstdlib>
+#include <fstream>
+using namespace std;
+
+struct PlayerStats {
+    int wins;
+    int losses;
+    float successRate;
+};
