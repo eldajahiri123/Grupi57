@@ -8,16 +8,27 @@ PlayerStats loadStats() {
     return stats;
 }
 
-void playGame(string word, PlayerStats& stats) {
+void playGame(string word, string hint, PlayerStats& stats) {
     vector<bool> guessed(word.length(), false);
     int attempts = 6;
     char letter;
+    bool hintUsed = false;
 
     while (attempts > 0) {
         printWord(word, guessed);
         cout << "Attempts left: " << attempts << endl;
-        cout << "Guess a letter: ";
+        cout << "Guess a letter (or type '?' for a hint): ";
         cin >> letter;
+
+        if (letter == '?' && !hintUsed) {
+            cout << "Hint: " << hint << endl;
+            hintUsed = true;
+            continue;
+        }
+        else if (letter == '?' && hintUsed) {
+            cout << "You have already used the hint!" << endl;
+            continue;
+        }
 
         bool found = false;
         for (size_t i = 0; i < word.length(); i++) {
