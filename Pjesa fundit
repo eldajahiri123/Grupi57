@@ -1,0 +1,34 @@
+if (!found) {
+            attempts--; // Reduce attempts only if the guess was incorrect
+        }
+
+        if (isWordGuessed(guessed)) {
+            cout << "Congratulations! You guessed the word." << endl;
+            stats.wins++;
+            break;
+        }
+    }
+
+    if (attempts == 0) {
+        cout << "You lost! The word was: " << word << endl;
+        stats.losses++;
+    }
+
+    stats.successRate = (stats.wins * 100.0) / (stats.wins + stats.losses);
+    saveStats(stats);
+}
+
+int main() {
+    vector<string> words = { "github", "computer", "project", "figma", "powerpoint" };
+    srand(time(0));
+    int difficulty;
+
+    cout << "Select difficulty (1 = Easy, 2 = Medium, 3 = Hard): ";
+    cin >> difficulty;
+
+    string word = words[rand() % words.size()];
+    PlayerStats stats = loadStats();
+
+    playGame(word, stats);
+    return 0;
+}
