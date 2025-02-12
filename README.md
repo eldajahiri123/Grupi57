@@ -1,5 +1,6 @@
 # Loja Hangman - Projekt në C++
 Kjo është një lojë e thjeshtë Hangman në linjë komanduese, e zbatuar në C++. Loja u mundëson lojtarëve të gjejnë një fjalë të fshehur duke sugjeruar shkronja një nga një. Nëse lojtari tejkalon numrin maksimal të gabimeve, ai humbet lojën.
+
 ![image](https://github.com/user-attachments/assets/372afc0b-05f7-47db-8a90-bf56e9fb9a9d)
 
 
